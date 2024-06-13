@@ -63,7 +63,7 @@ keyword-filter-type = false
 🎥 奈飞视频 = select, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 🎬 迪士尼+ = select, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 📹 油管视频 = select, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
-📽 哔哩哔哩 = select, 🌐 全球直连, 🇭🇰 香港节点, 🇯🇵 日本节点
+#📽 哔哩哔哩 = select, 🌐 全球直连, 🇭🇰 香港节点, 🇯🇵 日本节点
 🍿 国外媒体 = select, ✈️ 节点选择, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 🍔 国内媒体 = select, 🌐 全球直连, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 🍟 OpenAI = select, 🌐 全球直连, ✈️ 节点选择, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
@@ -103,7 +103,7 @@ RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/r
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list,📹 油管视频
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Netflix/Netflix.list,🎥 奈飞视频
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Disney/Disney.list,🎬 迪士尼+
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/BiliBili/BiliBili.list,📽 哔哩哔哩
+#RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/BiliBili/BiliBili.list,📽 哔哩哔哩
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMedia/ChinaMedia.list,🍔 国内媒体
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/GlobalMedia/GlobalMedia_All_No_Resolve.list,🍿 国外媒体
 # > Proxy
