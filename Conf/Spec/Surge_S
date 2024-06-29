@@ -67,6 +67,7 @@ keyword-filter-type = false
 🍿 国外媒体 = select, ✈️ 节点选择, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 🍔 国内媒体 = select, 🌐 全球直连, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 🍟 OpenAI = select, 🌐 全球直连, ✈️ 节点选择, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
+🍟 Copilot = select, 🌐 全球直连, ✈️ 节点选择, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 Ⓜ️ 微软服务 = select, 🌐 全球直连, ✈️ 节点选择, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 💰 PayPal = select, 🌐 全球直连, ✈️ 节点选择, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
 🍎 苹果服务 = select, 🌐 全球直连, ✈️ 节点选择, 🇭🇰 香港节点, 🇺🇲 美国节点, 🇯🇵 日本节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点
@@ -93,6 +94,8 @@ RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/r
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/OpenAI/OpenAI_Resolve.list,🍟 OpenAI
 # > 微软服务
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Microsoft/Microsoft.list,Ⓜ️ 微软服务
+# > Copilot
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Copilot/Copilot.list,Copilot
 # > 社交平台
 RULE-SET,https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.Telegram.list,📲 电报信息
 # > PayPal
