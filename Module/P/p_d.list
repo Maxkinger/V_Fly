@@ -1,196 +1,200 @@
 #NAME: tracker连接规则
 #馒头
-DOMAIN, tracker.m-team.io
+DOMAIN-SUFFIX,m-team.io
 #天空
-DOMAIN, tracker.hdsky.me
+DOMAIN-SUFFIX,hdsky.me
 #岛
-DOMAIN-SUFFIX, chdbits.xyz
-DOMAIN-SUFFIX, ptchdbits.co
+DOMAIN-SUFFIX,chdbits.xyz
+DOMAIN-SUFFIX,ptchdbits.co
 #瓷
-DOMAIN, tracker.hdchina.org
+DOMAIN-SUFFIX,hdchina.org
 #TTG
-DOMAIN, tracker.totheglory.im
+DOMAIN-SUFFIX,totheglory.im
 #家园
-DOMAIN, t.hdhome.org
+DOMAIN-SUFFIX,hdhome.org
 #我煲
-DOMAIN-SUFFIX, ourbits.club
+DOMAIN-SUFFIX,ourbits.club
 #SSD
-DOMAIN, on.springsunday.net
+DOMAIN-SUFFIX,springsunday.net
 #月月
-DOMAIN, tracker.keepfrds.com
+DOMAIN-SUFFIX,keepfrds.com
 #观众
-DOMAIN, t.audiences.me
-DOMAIN, tracker.cinefiles.info
+DOMAIN-SUFFIX,audiences.me
+DOMAIN-SUFFIX,cinefiles.info
 #猫
-DOMAIN, pterclub.com
+DOMAIN-SUFFIX,pterclub.com
 #大聪明
-DOMAIN-SUFFIX, hhanclub.top
-DOMAIN, tracker.hhan.club
+DOMAIN-SUFFIX,hhanclub.top
+DOMAIN-SUFFIX,hhan.club
 #opencd
-DOMAIN, tracker.open.cd
+DOMAIN-SUFFIX,open.cd
 #影/星空
-DOMAIN-SUFFIX, star-space.net
+DOMAIN-SUFFIX,star-space.net
 #杜比
-DOMAIN-SUFFIX, hddolby.com
+DOMAIN-SUFFIX,hddolby.com
 #hdv
-DOMAIN-SUFFIX, hdvideo.one
+DOMAIN-SUFFIX,hdvideo.one
 #蝶粉
-DOMAIN-SUFFIX, discfan.net
+DOMAIN-SUFFIX,discfan.net
 #明教
-DOMAIN-SUFFIX, hdpt.xyz
+DOMAIN-SUFFIX,hdpt.xyz
 #烧包
-DOMAIN-SUFFIX, ptsbao.club
+DOMAIN-SUFFIX,ptsbao.club
 #红叶
-DOMAIN, tracker2.leaves.red
-DOMAIN, tracker.leaves.red
-DOMAIN, tracker3.leaves.red
+DOMAIN-SUFFIX,leaves.red
+#DOMAIN-SUFFIX, tracker2.leaves.red
+#DOMAIN-SUFFIX, tracker.leaves.red
+#DOMAIN-SUFFIX, tracker3.leaves.red
 #tccf
-DOMAIN, t.et8.org
+DOMAIN-SUFFIX,et8.org
 #tlf
-DOMAIN, pt.eastgame.org
+DOMAIN-SUFFIX,eastgame.org
 #piggo
-DOMAIN-SUFFIX, piggo.me
+DOMAIN-SUFFIX,piggo.me
 #GPW
-DOMAIN, tracker.greatposterwall.com
+DOMAIN-SUFFIX,greatposterwall.com
 #自由农场
-DOMAIN-SUFFIX, 0ff.cc
+DOMAIN-SUFFIX,0ff.cc
 #1pt
-DOMAIN-SUFFIX, 1ptba.com
+DOMAIN-SUFFIX,1ptba.com
 #海豚
-DOMAIN-SUFFIX, 52dic.vip
+DOMAIN-SUFFIX,52dic.vip
 #52PT
-DOMAIN-SUFFIX, 52pt.site
+DOMAIN-SUFFIX,52pt.site
 #icc冰激凌
-DOMAIN, tracker.icc2022.xyz
-DOMAIN, tracker1.czhch.com
-DOMAIN, tracker2.czhch.com
-DOMAIN, tracker3.czhch.com
-DOMAIN, tracker1.icc2022.de
-DOMAIN, tracker2.icc2022.de
-DOMAIN, tracker3.icc2022.de
+DOMAIN-SUFFIX,icc2022.xyz
+DOMAIN-SUFFIX,czhch.com
+DOMAIN-SUFFIX,icc2022.de
+#DOMAIN-SUFFIX, tracker.icc2022.xyz
+#DOMAIN-SUFFIX, tracker1.czhch.com
+#DOMAIN-SUFFIX, tracker2.czhch.com
+#DOMAIN-SUFFIX, tracker3.czhch.com
+#DOMAIN-SUFFIX, tracker1.icc2022.de
+#DOMAIN-SUFFIX, tracker2.icc2022.de
+#DOMAIN-SUFFIX, tracker3.icc2022.de
 #白兔
-DOMAIN, club.hares.top
+DOMAIN-SUFFIX,hares.top
 #monika
-DOMAIN, tracker.monikadesign.uk
+DOMAIN-SUFFIX,monikadesign.uk
 #铃音
-DOMAIN, pt.soulvoice.club
+DOMAIN-SUFFIX,soulvoice.club
 #dajiao
-DOMAIN-SUFFIX, dajiao.cyou
+DOMAIN-SUFFIX,dajiao.cyou
 #Ubits
-DOMAIN-SUFFIX, ubits.club
+DOMAIN-SUFFIX,ubits.club
 #学校
-DOMAIN, pt.btschool.club
+DOMAIN-SUFFIX,btschool.club
 #红豆饭
-DOMAIN-SUFFIX, hdfans.org
+DOMAIN-SUFFIX,hdfans.org
 #hdzone
-DOMAIN-SUFFIX, hdfun.me
+DOMAIN-SUFFIX,hdfun.me
 #好大
-DOMAIN, tracker.hdarea.club
+DOMAIN-SUFFIX,hdarea.club
 #ptt
-DOMAIN, www.pttime.org
+DOMAIN-SUFFIX,pttime.org
 #蚂蚁
-DOMAIN-SUFFIX, hdmayi.com
+DOMAIN-SUFFIX,hdmayi.com
 #car
-DOMAIN, tracker.carpt.net
+DOMAIN-SUFFIX,carpt.net
 #atmos
-DOMAIN-SUFFIX, hdatmos.club
+DOMAIN-SUFFIX,hdatmos.club
 #大青虫
-DOMAIN, tracker.cyanbug.net
+DOMAIN-SUFFIX,cyanbug.net
 #熊猫
-DOMAIN-SUFFIX, pandapt.net
+DOMAIN-SUFFIX,pandapt.net
 #肉丝
-DOMAIN-SUFFIX, rousi.zip
+DOMAIN-SUFFIX,rousi.zip
 #知梦
-DOMAIN-SUFFIX, zmpt.cc
+DOMAIN-SUFFIX,zmpt.cc
 #冬樱
-DOMAIN, tracker.wintersakura.net
+DOMAIN-SUFFIX,wintersakura.net
 #ultrahd
-DOMAIN-SUFFIX, ultrahd.net
+DOMAIN-SUFFIX,ultrahd.net
 #GGPT
-DOMAIN, www.gamegamept.com
+DOMAIN-SUFFIX,gamegamept.com
 #okpt
-DOMAIN, www.okpt.net
+DOMAIN-SUFFIX,okpt.net
 #咖啡
-DOMAIN, tracker.ptcafe.club
+DOMAIN-SUFFIX,ptcafe.club
 #torrentleech
-DOMAIN, tracker.torrentleech.org
-DOMAIN, tracker.tleechreload.org
+DOMAIN-SUFFIX,torrentleech.org
+DOMAIN-SUFFIX,tleechreload.org
 #fsm
-DOMAIN-SUFFIX, connects.icu
-DOMAIN-SUFFIX, creditracker.net
-DOMAIN-SUFFIX, fsm-us.eu.org
+DOMAIN-SUFFIX,connects.icu
+DOMAIN-SUFFIX,creditracker.net
+DOMAIN-SUFFIX,fsm-us.eu.org
 #海胆
-DOMAIN, announce.haidan.video
+DOMAIN-SUFFIX,haidan.video
 #海棠
-DOMAIN, www.htpt.cc
+DOMAIN-SUFFIX,htpt.cc
 #kelu
-DOMAIN, our.kelu.one
+DOMAIN-SUFFIX,kelu.one
 #oldtoons
-DOMAIN-SUFFIX, oldtoons.world
+DOMAIN-SUFFIX,oldtoons.world
 #象
-DOMAIN, ptvicomo.net
+DOMAIN-SUFFIX,ptvicomo.net
 #龙之家
-DOMAIN, www.dragonhd.xyz
+DOMAIN-SUFFIX,dragonhd.xyz
 #杏坛
-DOMAIN-SUFFIX, xingtan.one
+DOMAIN-SUFFIX,xingtan.one
 #srvfi
-DOMAIN, www.srvfi.top
+DOMAIN-SUFFIX,srvfi.top
 #hdtime
-DOMAIN, tracker.hdtime.org
+DOMAIN-SUFFIX,hdtime.org
 #agsvpt
-DOMAIN,agsvpt.trackers.work
+DOMAIN-SUFFIX,agsvpt.trackers.work
 #朱雀
-DOMAIN, tracker.zhuque.in
+DOMAIN-SUFFIX,zhuque.in
 #梓喵
-DOMAIN, tracker.azusa.wiki
+DOMAIN-SUFFIX,azusa.wiki
 #U2
-DOMAIN, daydream.dmhy.best
+DOMAIN-SUFFIX,daydream.dmhy.best
 #蟹黄堡
-DOMAIN-SUFFIX, crabpt.vip
+DOMAIN-SUFFIX,crabpt.vip
 #野马
-DOMAIN, tracker.yemapt.org
+DOMAIN-SUFFIX,yemapt.org
 #qingwa
-DOMAIN, tracker.qingwa.pro
-DOMAIN, tracker.qingwapt.com
-DOMAIN, tracker.qingwapt.org
+DOMAIN-SUFFIX,qingwa.pro
+DOMAIN-SUFFIX,qingwapt.com
+DOMAIN-SUFFIX,qingwapt.org
 #toSKy
-DOMAIN-SUFFIX, tosky.club
+DOMAIN-SUFFIX,tosky.club
 #麒麟
-DOMAIN-SUFFIX, hdkyl.in
+DOMAIN-SUFFIX,hdkyl.in
 
 #教育网
 #百川
-DOMAIN, tracker.hitpt.com
-DOMAIN, hitwh.oncampus.hitpt.com
+DOMAIN-SUFFIX,hitpt.com
+DOMAIN-SUFFIX,hitwh.oncampus.hitpt.com
 #ecustpt
-DOMAIN, public.ecustpt.eu.org
-DOMAIN, ecustpt.eu.org
+DOMAIN-SUFFIX,public.ecustpt.eu.org
+DOMAIN-SUFFIX,ecustpt.eu.org
 #南洋
-DOMAIN, tracker.nanyangpt.com
+DOMAIN-SUFFIX,nanyangpt.com
 #葡萄
-DOMAIN, tracker.sjtu.edu.cn
+DOMAIN-SUFFIX,sjtu.edu.cn
 
 #外站
 #FL
-DOMAIN, reactor.filelist.io
-DOMAIN, reactor.flro.org
+DOMAIN-SUFFIX,filelist.io
+DOMAIN-SUFFIX,flro.org
 #avistaz
-DOMAIN, tracker.avistaz.to
+DOMAIN-SUFFIX,avistaz.to
 #cinemaz
-DOMAIN, tracker.cinemaz.to
+DOMAIN-SUFFIX,cinemaz.to
 #aa
-DOMAIN, sync.leniter.org
+DOMAIN-SUFFIX,sync.leniter.org
 #exoticaz
-DOMAIN, tracker.exoticaz.to
+DOMAIN-SUFFIX,exoticaz.to
 #gay-tor
-DOMAIN, tracker.gaytor.rent
+DOMAIN-SUFFIX,gaytor.rent
 #gay-area
-DOMAIN-SUFFIX, gay-area.org
+DOMAIN-SUFFIX,gay-area.org
 #gay-torrents
-DOMAIN, tracker.gay-torrents.net
+DOMAIN-SUFFIX,gay-torrents.net
 #IPT
-DOMAIN, routing.bgp.technology
-DOMAIN, async.empirehost.me
-DOMAIN, 127.0.0.1.stackoverflow.tech
+DOMAIN-SUFFIX,routing.bgp.technology
+DOMAIN-SUFFIX,async.empirehost.me
+DOMAIN-SUFFIX,127.0.0.1.stackoverflow.tech
 #blutopia
-DOMAIN, blutopia.cc
+DOMAIN-SUFFIX,blutopia.cc
