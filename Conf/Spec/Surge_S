@@ -120,5 +120,7 @@ RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/r
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN_Resolve.list,🌐 全球直连
 # > China 补全
 RULE-SET,https://raw.githubusercontent.com/Blankwonder/surge-list/master/cn.list,🌐 全球直连
+# > PT tracker站点
+RULE-SET,https://raw.githubusercontent.com/Maxkinger/V_Fly/master/Module/P/p_d.list,🌐 全球直连
 # > DNS 查询失败走 Final 规则
 FINAL,✈️ 节点选择,dns-failed
