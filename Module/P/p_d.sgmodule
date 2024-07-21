@@ -36,7 +36,7 @@ DOMAIN-SUFFIX, star-space.net, DIRECT
 #杜比
 DOMAIN-SUFFIX, hddolby.com, DIRECT
 #hdv
-DOMAIN_SUFFIX, hdvideo.one, DIRECT
+DOMAIN-SUFFIX, hdvideo.one, DIRECT
 #蝶粉
 DOMAIN-SUFFIX, discfan.net, DIRECT
 #明教
