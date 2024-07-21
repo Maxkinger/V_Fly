@@ -1,0 +1,193 @@
+#!url=https://raw.githubusercontent.com/fangkuia/XPTV/main/X/xptv.sgmodule
+#!name=tracker直连规则
+#!desc=仅直连
+[Rule]
+#馒头
+DOMAIN, tracker.m-team.io, DIRECT
+#天空
+DOMAIN, tracker.hdsky.me, DIRECT
+#岛
+DOMAIN-SUFFIX, chdbits.xyz, DIRECT
+DOMAIN-SUFFIX, ptchdbits.co, DIRECT
+#瓷
+DOMAIN, tracker.hdchina.org, DIRECT
+#TTG
+DOMAIN, tracker.totheglory.im, DIRECT
+#家园
+DOMAIN, t.hdhome.org, DIRECT
+#我煲
+DOMAIN-SUFFIX, ourbits.club, DIRECT
+#SSD
+DOMAIN, on.springsunday.net, DIRECT
+#月月
+DOMAIN, tracker.keepfrds.com, DIRECT
+#观众
+DOMAIN, t.audiences.me, DIRECT
+DOMAIN, tracker.cinefiles.info, DIRECT
+#猫
+DOMAIN, pterclub.com, DIRECT
+#大聪明
+DOMAIN-SUFFIX, hhanclub.top, DIRECT
+DOMAIN, tracker.hhan.club, DIRECT
+#opencd
+DOMAIN, tracker.open.cd, DIRECT
+#影/星空
+DOMAIN-SUFFIX, star-space.net, DIRECT
+#杜比
+DOMAIN-SUFFIX, hddolby.com, DIRECT
+#hdv
+DOMAIN_SUFFIX, hdvideo.one, DIRECT
+#蝶粉
+DOMAIN-SUFFIX, discfan.net, DIRECT
+#明教
+DOMAIN-SUFFIX, hdpt.xyz, DIRECT
+#烧包
+DOMAIN-SUFFIX, ptsbao.club, DIRECT
+#红叶
+DOMAIN, tracker2.leaves.red, DIRECT
+DOMAIN, tracker.leaves.red, DIRECT
+DOMAIN, tracker3.leaves.red, DIRECT
+#tccf
+DOMAIN, t.et8.org, DIRECT
+#tlf
+DOMAIN, pt.eastgame.org, DIRECT
+#piggo
+DOMAIN-SUFFIX, piggo.me, DIRECT
+#GPW
+DOMAIN, tracker.greatposterwall.com, DIRECT
+#自由农场
+DOMAIN-SUFFIX, 0ff.cc, DIRECT
+#1pt
+DOMAIN-SUFFIX, 1ptba.com, DIRECT
+#海豚
+DOMAIN-SUFFIX, 52dic.vip, DIRECT
+#52PT
+DOMAIN-SUFFIX, 52pt.site, DIRECT
+#icc冰激凌
+DOMAIN, tracker.icc2022.xyz, DIRECT
+#白兔
+DOMAIN, club.hares.top, DIRECT
+#monika
+DOMAIN, tracker.monikadesign.uk, DIRECT
+#铃音
+DOMAIN, pt.soulvoice.club, DIRECT
+#dajiao
+DOMAIN-SUFFIX, dajiao.cyou, DIRECT
+#Ubits
+DOMAIN-SUFFIX, ubits.club, DIRECT
+#学校
+DOMAIN, pt.btschool.club, DIRECT
+#红豆饭
+DOMAIN-SUFFIX, hdfans.org, DIRECT
+#hdzone
+DOMAIN-SUFFIX, hdfun.me, DIRECT
+#好大
+DOMAIN, tracker.hdarea.club, DIRECT
+#ptt
+DOMAIN, www.pttime.org, DIRECT
+#蚂蚁
+DOMAIN-SUFFIX, hdmayi.com, DIRECT
+#car
+DOMAIN, tracker.carpt.net, DIRECT
+#atmos
+DOMAIN-SUFFIX, hdatmos.club, DIRECT
+#大青虫
+DOMAIN, tracker.cyanbug.net, DIRECT
+#熊猫
+DOMAIN-SUFFIX, pandapt.net, DIRECT
+#肉丝
+DOMAIN-SUFFIX, rousi.zip, DIRECT
+#知梦
+DOMAIN-SUFFIX, zmpt.cc, DIRECT
+#冬樱
+DOMAIN, tracker.wintersakura.net, DIRECT
+#ultrahd
+DOMAIN-SUFFIX, ultrahd.net, DIRECT
+#GGPT
+DOMAIN, www.gamegamept.com, DIRECT
+#okpt
+DOMAIN, www.okpt.net, DIRECT
+#咖啡
+DOMAIN, tracker.ptcafe.club, DIRECT
+#torrentleech
+DOMAIN, tracker.torrentleech.org, DIRECT
+DOMAIN, tracker.tleechreload.org, DIRECT
+#fsm
+DOMAIN-SUFFIX, connects.icu, DIRECT
+DOMAIN-SUFFIX, creditracker.net, DIRECT
+DOMAIN-SUFFIX, fsm-us.eu.org, DIRECT
+#海胆
+DOMAIN, announce.haidan.video, DIRECT
+#海棠
+DOMAIN, www.htpt.cc, DIRECT
+#kelu
+DOMAIN, our.kelu.one, DIRECT
+#oldtoons
+DOMAIN-SUFFIX, oldtoons.world, DIRECT
+#象
+DOMAIN, ptvicomo.net, DIRECT
+#龙之家
+DOMAIN, www.dragonhd.xyz, DIRECT
+#杏坛
+DOMAIN-SUFFIX, xingtan.one, DIRECT
+#srvfi
+DOMAIN, www.srvfi.top, DIRECT
+#hdtime
+DOMAIN, tracker.hdtime.org, DIRECT
+#agsvpt
+DOMAIN,agsvpt.trackers.work, DIRECT
+#朱雀
+DOMAIN, tracker.zhuque.in, DIRECT
+#梓喵
+DOMAIN, tracker.azusa.wiki, DIRECT
+#U2
+DOMAIN, daydream.dmhy.best, DIRECT
+#蟹黄堡
+DOMAIN-SUFFIX, crabpt.vip, DIRECT
+#野马
+DOMAIN, tracker.yemapt.org, DIRECT
+#qingwa
+DOMAIN, tracker.qingwa.pro, DIRECT
+DOMAIN, tracker.qingwapt.com, DIRECT
+DOMAIN, tracker.qingwapt.org, DIRECT
+#toSKy
+DOMAIN-SUFFIX, tosky.club, DIRECT
+#麒麟
+DOMAIN-SUFFIX, hdkyl.in, DIRECT
+
+#教育网
+#百川
+DOMAIN, tracker.hitpt.com, DIRECT
+DOMAIN, hitwh.oncampus.hitpt.com, DIRECT
+#ecustpt
+DOMAIN, public.ecustpt.eu.org, DIRECT
+DOMAIN, ecustpt.eu.org, DIRECT
+#南洋
+DOMAIN, tracker.nanyangpt.com, DIRECT
+#葡萄
+DOMAIN, tracker.sjtu.edu.cn, DIRECT
+
+#外站
+#FL
+DOMAIN, reactor.filelist.io, DIRECT
+DOMAIN, reactor.flro.org, DIRECT
+#avistaz
+DOMAIN, tracker.avistaz.to, DIRECT
+#cinemaz
+DOMAIN, tracker.cinemaz.to, DIRECT
+#aa
+DOMAIN, sync.leniter.org, DIRECT
+#exoticaz
+DOMAIN, tracker.exoticaz.to, DIRECT
+#gay-tor
+DOMAIN, tracker.gaytor.rent, DIRECT
+#gay-area
+DOMAIN-SUFFIX, gay-area.org, DIRECT
+#gay-torrents
+DOMAIN, tracker.gay-torrents.net, DIRECT
+#IPT
+DOMAIN, routing.bgp.technology, DIRECT
+DOMAIN, async.empirehost.me, DIRECT
+DOMAIN, 127.0.0.1.stackoverflow.tech, DIRECT
+#blutopia
+DOMAIN, blutopia.cc, DIRECT
