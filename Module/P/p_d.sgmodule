@@ -1,193 +1,190 @@
-#!url=https://raw.githubusercontent.com/Maxkinger/V_Fly/master/Module/P/p_d.sgmodule
-#!name=tracker连接规则
-#!desc=连接规则
-[Rule]
+#NAME: tracker连接规则
 #馒头
-DOMAIN, tracker.m-team.io, DIRECT
+DOMAIN, tracker.m-team.io
 #天空
-DOMAIN, tracker.hdsky.me, DIRECT
+DOMAIN, tracker.hdsky.me
 #岛
-DOMAIN-SUFFIX, chdbits.xyz, DIRECT
-DOMAIN-SUFFIX, ptchdbits.co, DIRECT
+DOMAIN-SUFFIX, chdbits.xyz
+DOMAIN-SUFFIX, ptchdbits.co
 #瓷
-DOMAIN, tracker.hdchina.org, DIRECT
+DOMAIN, tracker.hdchina.org
 #TTG
-DOMAIN, tracker.totheglory.im, DIRECT
+DOMAIN, tracker.totheglory.im
 #家园
-DOMAIN, t.hdhome.org, DIRECT
+DOMAIN, t.hdhome.org
 #我煲
-DOMAIN-SUFFIX, ourbits.club, DIRECT
+DOMAIN-SUFFIX, ourbits.club
 #SSD
-DOMAIN, on.springsunday.net, DIRECT
+DOMAIN, on.springsunday.net
 #月月
-DOMAIN, tracker.keepfrds.com, DIRECT
+DOMAIN, tracker.keepfrds.com
 #观众
-DOMAIN, t.audiences.me, DIRECT
-DOMAIN, tracker.cinefiles.info, DIRECT
+DOMAIN, t.audiences.me
+DOMAIN, tracker.cinefiles.info
 #猫
-DOMAIN, pterclub.com, DIRECT
+DOMAIN, pterclub.com
 #大聪明
-DOMAIN-SUFFIX, hhanclub.top, DIRECT
-DOMAIN, tracker.hhan.club, DIRECT
+DOMAIN-SUFFIX, hhanclub.top
+DOMAIN, tracker.hhan.club
 #opencd
-DOMAIN, tracker.open.cd, DIRECT
+DOMAIN, tracker.open.cd
 #影/星空
-DOMAIN-SUFFIX, star-space.net, DIRECT
+DOMAIN-SUFFIX, star-space.net
 #杜比
-DOMAIN-SUFFIX, hddolby.com, DIRECT
+DOMAIN-SUFFIX, hddolby.com
 #hdv
-DOMAIN-SUFFIX, hdvideo.one, DIRECT
+DOMAIN-SUFFIX, hdvideo.one
 #蝶粉
-DOMAIN-SUFFIX, discfan.net, DIRECT
+DOMAIN-SUFFIX, discfan.net
 #明教
-DOMAIN-SUFFIX, hdpt.xyz, DIRECT
+DOMAIN-SUFFIX, hdpt.xyz
 #烧包
-DOMAIN-SUFFIX, ptsbao.club, DIRECT
+DOMAIN-SUFFIX, ptsbao.club
 #红叶
-DOMAIN, tracker2.leaves.red, DIRECT
-DOMAIN, tracker.leaves.red, DIRECT
-DOMAIN, tracker3.leaves.red, DIRECT
+DOMAIN, tracker2.leaves.red
+DOMAIN, tracker.leaves.red
+DOMAIN, tracker3.leaves.red
 #tccf
-DOMAIN, t.et8.org, DIRECT
+DOMAIN, t.et8.org
 #tlf
-DOMAIN, pt.eastgame.org, DIRECT
+DOMAIN, pt.eastgame.org
 #piggo
-DOMAIN-SUFFIX, piggo.me, DIRECT
+DOMAIN-SUFFIX, piggo.me
 #GPW
-DOMAIN, tracker.greatposterwall.com, DIRECT
+DOMAIN, tracker.greatposterwall.com
 #自由农场
-DOMAIN-SUFFIX, 0ff.cc, DIRECT
+DOMAIN-SUFFIX, 0ff.cc
 #1pt
-DOMAIN-SUFFIX, 1ptba.com, DIRECT
+DOMAIN-SUFFIX, 1ptba.com
 #海豚
-DOMAIN-SUFFIX, 52dic.vip, DIRECT
+DOMAIN-SUFFIX, 52dic.vip
 #52PT
-DOMAIN-SUFFIX, 52pt.site, DIRECT
+DOMAIN-SUFFIX, 52pt.site
 #icc冰激凌
-DOMAIN, tracker.icc2022.xyz, DIRECT
+DOMAIN, tracker.icc2022.xyz
 #白兔
-DOMAIN, club.hares.top, DIRECT
+DOMAIN, club.hares.top
 #monika
-DOMAIN, tracker.monikadesign.uk, DIRECT
+DOMAIN, tracker.monikadesign.uk
 #铃音
-DOMAIN, pt.soulvoice.club, DIRECT
+DOMAIN, pt.soulvoice.club
 #dajiao
-DOMAIN-SUFFIX, dajiao.cyou, DIRECT
+DOMAIN-SUFFIX, dajiao.cyou
 #Ubits
-DOMAIN-SUFFIX, ubits.club, DIRECT
+DOMAIN-SUFFIX, ubits.club
 #学校
-DOMAIN, pt.btschool.club, DIRECT
+DOMAIN, pt.btschool.club
 #红豆饭
-DOMAIN-SUFFIX, hdfans.org, DIRECT
+DOMAIN-SUFFIX, hdfans.org
 #hdzone
-DOMAIN-SUFFIX, hdfun.me, DIRECT
+DOMAIN-SUFFIX, hdfun.me
 #好大
-DOMAIN, tracker.hdarea.club, DIRECT
+DOMAIN, tracker.hdarea.club
 #ptt
-DOMAIN, www.pttime.org, DIRECT
+DOMAIN, www.pttime.org
 #蚂蚁
-DOMAIN-SUFFIX, hdmayi.com, DIRECT
+DOMAIN-SUFFIX, hdmayi.com
 #car
-DOMAIN, tracker.carpt.net, DIRECT
+DOMAIN, tracker.carpt.net
 #atmos
-DOMAIN-SUFFIX, hdatmos.club, DIRECT
+DOMAIN-SUFFIX, hdatmos.club
 #大青虫
-DOMAIN, tracker.cyanbug.net, DIRECT
+DOMAIN, tracker.cyanbug.net
 #熊猫
-DOMAIN-SUFFIX, pandapt.net, DIRECT
+DOMAIN-SUFFIX, pandapt.net
 #肉丝
-DOMAIN-SUFFIX, rousi.zip, DIRECT
+DOMAIN-SUFFIX, rousi.zip
 #知梦
-DOMAIN-SUFFIX, zmpt.cc, DIRECT
+DOMAIN-SUFFIX, zmpt.cc
 #冬樱
-DOMAIN, tracker.wintersakura.net, DIRECT
+DOMAIN, tracker.wintersakura.net
 #ultrahd
-DOMAIN-SUFFIX, ultrahd.net, DIRECT
+DOMAIN-SUFFIX, ultrahd.net
 #GGPT
-DOMAIN, www.gamegamept.com, DIRECT
+DOMAIN, www.gamegamept.com
 #okpt
-DOMAIN, www.okpt.net, DIRECT
+DOMAIN, www.okpt.net
 #咖啡
-DOMAIN, tracker.ptcafe.club, DIRECT
+DOMAIN, tracker.ptcafe.club
 #torrentleech
-DOMAIN, tracker.torrentleech.org, DIRECT
-DOMAIN, tracker.tleechreload.org, DIRECT
+DOMAIN, tracker.torrentleech.org
+DOMAIN, tracker.tleechreload.org
 #fsm
-DOMAIN-SUFFIX, connects.icu, DIRECT
-DOMAIN-SUFFIX, creditracker.net, DIRECT
-DOMAIN-SUFFIX, fsm-us.eu.org, DIRECT
+DOMAIN-SUFFIX, connects.icu
+DOMAIN-SUFFIX, creditracker.net
+DOMAIN-SUFFIX, fsm-us.eu.org
 #海胆
-DOMAIN, announce.haidan.video, DIRECT
+DOMAIN, announce.haidan.video
 #海棠
-DOMAIN, www.htpt.cc, DIRECT
+DOMAIN, www.htpt.cc
 #kelu
-DOMAIN, our.kelu.one, DIRECT
+DOMAIN, our.kelu.one
 #oldtoons
-DOMAIN-SUFFIX, oldtoons.world, DIRECT
+DOMAIN-SUFFIX, oldtoons.world
 #象
-DOMAIN, ptvicomo.net, DIRECT
+DOMAIN, ptvicomo.net
 #龙之家
-DOMAIN, www.dragonhd.xyz, DIRECT
+DOMAIN, www.dragonhd.xyz
 #杏坛
-DOMAIN-SUFFIX, xingtan.one, DIRECT
+DOMAIN-SUFFIX, xingtan.one
 #srvfi
-DOMAIN, www.srvfi.top, DIRECT
+DOMAIN, www.srvfi.top
 #hdtime
-DOMAIN, tracker.hdtime.org, DIRECT
+DOMAIN, tracker.hdtime.org
 #agsvpt
-DOMAIN,agsvpt.trackers.work, DIRECT
+DOMAIN,agsvpt.trackers.work
 #朱雀
-DOMAIN, tracker.zhuque.in, DIRECT
+DOMAIN, tracker.zhuque.in
 #梓喵
-DOMAIN, tracker.azusa.wiki, DIRECT
+DOMAIN, tracker.azusa.wiki
 #U2
-DOMAIN, daydream.dmhy.best, DIRECT
+DOMAIN, daydream.dmhy.best
 #蟹黄堡
-DOMAIN-SUFFIX, crabpt.vip, DIRECT
+DOMAIN-SUFFIX, crabpt.vip
 #野马
-DOMAIN, tracker.yemapt.org, DIRECT
+DOMAIN, tracker.yemapt.org
 #qingwa
-DOMAIN, tracker.qingwa.pro, DIRECT
-DOMAIN, tracker.qingwapt.com, DIRECT
-DOMAIN, tracker.qingwapt.org, DIRECT
+DOMAIN, tracker.qingwa.pro
+DOMAIN, tracker.qingwapt.com
+DOMAIN, tracker.qingwapt.org
 #toSKy
-DOMAIN-SUFFIX, tosky.club, DIRECT
+DOMAIN-SUFFIX, tosky.club
 #麒麟
-DOMAIN-SUFFIX, hdkyl.in, DIRECT
+DOMAIN-SUFFIX, hdkyl.in
 
 #教育网
 #百川
-DOMAIN, tracker.hitpt.com, DIRECT
-DOMAIN, hitwh.oncampus.hitpt.com, DIRECT
+DOMAIN, tracker.hitpt.com
+DOMAIN, hitwh.oncampus.hitpt.com
 #ecustpt
-DOMAIN, public.ecustpt.eu.org, DIRECT
-DOMAIN, ecustpt.eu.org, DIRECT
+DOMAIN, public.ecustpt.eu.org
+DOMAIN, ecustpt.eu.org
 #南洋
-DOMAIN, tracker.nanyangpt.com, DIRECT
+DOMAIN, tracker.nanyangpt.com
 #葡萄
-DOMAIN, tracker.sjtu.edu.cn, DIRECT
+DOMAIN, tracker.sjtu.edu.cn
 
 #外站
 #FL
-DOMAIN, reactor.filelist.io, DIRECT
-DOMAIN, reactor.flro.org, DIRECT
+DOMAIN, reactor.filelist.io
+DOMAIN, reactor.flro.org
 #avistaz
-DOMAIN, tracker.avistaz.to, DIRECT
+DOMAIN, tracker.avistaz.to
 #cinemaz
-DOMAIN, tracker.cinemaz.to, DIRECT
+DOMAIN, tracker.cinemaz.to
 #aa
-DOMAIN, sync.leniter.org, DIRECT
+DOMAIN, sync.leniter.org
 #exoticaz
-DOMAIN, tracker.exoticaz.to, DIRECT
+DOMAIN, tracker.exoticaz.to
 #gay-tor
-DOMAIN, tracker.gaytor.rent, DIRECT
+DOMAIN, tracker.gaytor.rent
 #gay-area
-DOMAIN-SUFFIX, gay-area.org, DIRECT
+DOMAIN-SUFFIX, gay-area.org
 #gay-torrents
-DOMAIN, tracker.gay-torrents.net, DIRECT
+DOMAIN, tracker.gay-torrents.net
 #IPT
-DOMAIN, routing.bgp.technology, DIRECT
-DOMAIN, async.empirehost.me, DIRECT
-DOMAIN, 127.0.0.1.stackoverflow.tech, DIRECT
+DOMAIN, routing.bgp.technology
+DOMAIN, async.empirehost.me
+DOMAIN, 127.0.0.1.stackoverflow.tech
 #blutopia
-DOMAIN, blutopia.cc, DIRECT
+DOMAIN, blutopia.cc
