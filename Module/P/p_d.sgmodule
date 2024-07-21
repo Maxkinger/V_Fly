@@ -1,6 +1,6 @@
-#!url=https://raw.githubusercontent.com/fangkuia/XPTV/main/X/xptv.sgmodule
-#!name=tracker直连规则
-#!desc=仅直连
+#!url=https://raw.githubusercontent.com/Maxkinger/V_Fly/master/Module/P/p_d.sgmodule
+#!name=tracker连接规则
+#!desc=连接规则
 [Rule]
 #馒头
 DOMAIN, tracker.m-team.io, DIRECT
