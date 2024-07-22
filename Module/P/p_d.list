@@ -120,9 +120,9 @@ DOMAIN-SUFFIX,ptcafe.club
 DOMAIN-SUFFIX,torrentleech.org
 DOMAIN-SUFFIX,tleechreload.org
 #fsm
-DOMAIN-SUFFIX,connects.icu
-DOMAIN-SUFFIX,creditracker.net
-DOMAIN-SUFFIX,fsm-us.eu.org
+DOMAIN,connects.icu
+DOMAIN,fsm-us.eu.org
+DOMAIN,nextpt.net
 #海胆
 DOMAIN-SUFFIX,haidan.video
 #海棠
