@@ -19,8 +19,8 @@ DOMAIN-SUFFIX,springsunday.net
 #月月
 DOMAIN-SUFFIX,keepfrds.com
 #观众
-DOMAIN-SUFFIX,audiences.me
-DOMAIN-SUFFIX,cinefiles.info
+DOMAIN,t.audiences.me
+DOMAIN,tracker.cinefiles.info
 #猫
 DOMAIN-SUFFIX,pterclub.com
 #大聪明
