@@ -1,5 +1,5 @@
 #!url=https://raw.githubusercontent.com/fangkuia/XPTV/main/X/xptv.sgmodule
-#!name=XPTV规则
+#!name=XPTV规则-修改部分
 #!desc=仅直连,源：https://raw.githubusercontent.com/fangkuia/XPTV/main/X/xptv.sgmodule
 [Rule]
 DOMAIN-SUFFIX, xptvhelper.link, DIRECT
