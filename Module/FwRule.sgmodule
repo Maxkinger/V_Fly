@@ -1,0 +1,14 @@
+#!url=https://raw.githubusercontent.com/fangkuia/XPTV/main/X/xptv.sgmodule
+#!name=Forward规则,
+#!desc=使用首页配置和模块的过程中感受到一些图标加载不了或者资源无法加载,https://gist.github.com/MrRegret/5bb2df7c332157fd35b514af8e635b10/raw
+[Rule]
+DOMAIN-SUFFIX,javday.app,"✈️ 节点选择"
+DOMAIN-SUFFIX,pornhub.com,"✈️ 节点选择"
+DOMAIN-SUFFIX,xvideos.com,"✈️ 节点选择"
+DOMAIN-SUFFIX,xvideos-cdn.com,"✈️ 节点选择"
+DOMAIN-SUFFIX,91porn.com,"✈️ 节点选择"
+DOMAIN-SUFFIX,jable.tv,"✈️ 节点选择"
+DOMAIN-SUFFIX,javrate.com,"✈️ 节点选择"
+DOMAIN-SUFFIX,imdb.com,"✈️ 节点选择"
+DOMAIN-SUFFIX,media-imdb.com,"✈️ 节点选择"
+DOMAIN-SUFFIX,tmdb.org,"✈️ 节点选择"
