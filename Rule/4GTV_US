@@ -1,0 +1,11 @@
+# NAME: IPTV_规则_美国
+# AUTHOR: 。。。。
+# REPO: xxxx
+# UPDATED: 2025-07-26
+# DOMAIN-SUFFIX: 5
+# TOTAL: 5
+DOMAIN,smart.pendy.dpdns.org
+DOMAIN,sport.pendy.dpdns.org
+DOMAIN,docker.livednow.dpdns.org
+DOMAIN,4gtv.livednow.dpdns.org
+DOMAIN,iptv.mydiver.eu.org
