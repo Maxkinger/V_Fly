@@ -85,9 +85,9 @@ WidgetMetadata = {
         }
       ]
     },
-     {
+    {
       title: "获取视频详情",
-      functionName: "loadDetail",
+      functionName: "loadDetail2",
       type: "video",
       params: [
         { name: "page", title: "页码", type: "page" }
@@ -166,11 +166,11 @@ async function loadList(params = {}) {
   }
 }
 
-async function loadDetail(link) {
+async function loadDetail2(link) {
   // 1. 拼接完整 URL
   // const url = resolveUrl(link);
   const link = "/out/?l=3AASGc4eAkCOq0s2bExFM2dVZFg1AtmIaHR0cHM6Ly93d3cuYmZodWIuY29tL3ZpZGVvcy8xNTc5NDAzL2RhZGR5LWd5bS1nZXQtaG90LWZ1Y2tlZC1ieS1hLWhhbmRzb21lLXN0cmFpZ2h0LWd1eS8/dXRtX3NvdXJjZT1hd24mdXRtX21lZGl1bT10Z3AmdXRtX2NhbXBhaWduPWNwY80BlaJ0YwFFp3BvcHVsYXIB2St7ImFsbCI6IiIsIm9yaWVudGF0aW9uIjoiZ2F5IiwicHJpY2luZyI6IiJ9zPzOaYbk2ahjYXRlZ29yec12y8DZPVt7IjEiOiJhVzhiMTdJVUpaZiJ9LHsiMiI6InhjMm9FWGQ1aTVIIn0seyIzIjoianJmTjVQU2V6a2sifV0%3D&c=03b82d74&v=3&"
-  
+
   const url = BASE_URL + link; // 直接拼接，避免解析错误导致的路径问题
 
   console.log(`Loading detail from URL: ${url}`);
