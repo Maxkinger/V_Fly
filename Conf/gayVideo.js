@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.10",
+  version: "0.0.11",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -212,6 +212,8 @@ async function loadDetail(link) {
     // 正则含义：匹配 "var sources =" 后面直到 ";" 之前的所有内容
     const sourcesMatch = html.match(/var\s+sources\s*=\s*(\[.*?\]);/s);
     
+    console.log(`Sources match: ${sourcesMatch}`);
+
     if (sourcesMatch && sourcesMatch[1]) {
         try {
             // 解析 JSON
