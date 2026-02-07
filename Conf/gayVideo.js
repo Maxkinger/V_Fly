@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.8",
+  version: "0.0.9",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -204,6 +204,30 @@ async function loadDetail(link) {
 
     // 4. 通用视频地址嗅探 (逻辑参考 MISSAV)
     let videoUrl = "";
+
+    // 1. 提取 sources 数组 (最关键的一步)
+    // 正则含义：匹配 "var sources =" 后面直到 ";" 之前的所有内容
+    const sourcesMatch = html.match(/var\s+sources\s*=\s*(\[.*?\]);/s);
+    
+    if (sourcesMatch && sourcesMatch[1]) {
+        try {
+            // 解析 JSON
+            const sources = JSON.parse(sourcesMatch[1]);
+            
+            // 2. 挑选最佳画质
+            // 策略：优先找 desc 为 "720p" 或 "1080p" 的，找不到就拿第一个
+            let bestSource = sources.find(s => s.desc === "1080p") || 
+                             sources.find(s => s.desc === "720p") || 
+                             sources[0];
+                             
+            if (bestSource && bestSource.src) {
+                videoUrl = bestSource.src;
+            }
+            return false; // 已找到视频地址，后续步骤不再执行
+        } catch (e) {
+            console.log("解析 sources JSON 失败: " + e.message);
+        }
+    }
 
     // 策略 A: 查找 <source> 标签
     $("video source").each((i, el) => {
