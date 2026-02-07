@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.11",
+  version: "0.0.12",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -87,7 +87,7 @@ WidgetMetadata = {
     },
     {
       title: "获取视频详情",
-      functionName: "loadDetail",
+      functionName: "loadDetail2",
       type: "video",
       params: [
         { name: "page", title: "页码", type: "page" },
@@ -183,6 +183,85 @@ async function loadList(params = {}) {
 
 async function loadDetail(link) {
   // 1. 拼接完整 URL
+  // const url = BASE_URL + link; // 直接拼接，避免解析错误导致的路径问题
+  let url = `${BASE_URL}${link}`;
+
+  console.log(`Loading detail from URL: ${url}`);
+  try {
+    // 2. 发起请求 (Widget.http 默认会自动跟随重定向到目标网站)
+    const res = await Widget.http.get(url, { headers: HEADERS });
+    const html = res.data;
+
+    console.log(`Detail page loaded, parsing content...: ${html}`);
+
+    const $ = Widget.html.load(html);
+
+    // 3. 获取基础信息 (尝试从 OpenGraph 标签或 Title 获取)
+    let title = $('meta[property="og:title"]').attr('content') || $("title").text().trim();
+    let coverUrl = $('meta[property="og:image"]').attr('content');
+
+    console.log(`Parsed title: ${title}`);
+    console.log(`Parsed cover URL: ${coverUrl}`);
+
+    // 4. 通用视频地址嗅探 (逻辑参考 MISSAV)
+    let videoUrl = "";
+
+    // 1. 提取 sources 数组 (最关键的一步)
+    // 正则含义：匹配 "var sources =" 后面直到 ";" 之前的所有内容
+    const sourcesMatch = html.match(/var\s+sources\s*=\s*(\[.*?\]);/s);
+
+    console.log(`Sources match: ${sourcesMatch}`);
+
+    if (sourcesMatch && sourcesMatch[1]) {
+      try {
+        // 解析 JSON
+        const sources = JSON.parse(sourcesMatch[1]);
+
+        // 2. 挑选最佳画质
+        // 策略：优先找 desc 为 "720p" 或 "1080p" 的，找不到就拿第一个
+        let bestSource = sources.find(s => s.desc === "1080p") ||
+          sources.find(s => s.desc === "720p") ||
+          sources[0];
+
+        if (bestSource && bestSource.src) {
+          videoUrl = bestSource.src;
+        }
+        return false; // 已找到视频地址，后续步骤不再执行
+      } catch (e) {
+        console.log("解析 sources JSON 失败: " + e.message);
+      }
+    }
+
+    if (!videoUrl) {
+      // 最后尝试一下简单的 source = ...
+      const matchSimple = html.match(/source\s*=\s*['"]([^'"]+)['"]/);
+      if (matchSimple) videoUrl = matchSimple[1];
+    }
+
+    if (videoUrl) {
+      return [{
+        id: link,
+        type: "video",
+        title: title,
+        videoUrl: videoUrl,
+        playerType: "system",
+        customHeaders: {
+          "Referer": "https://missav.ai/", // 必须是根域名，不能是 link
+          "User-Agent": HEADERS["User-Agent"],
+          "Origin": "https://missav.ai"
+        }
+      }];
+    } else {
+      return [{ id: "err", type: "text", title: "解析失败", subTitle: "未找到播放地址" }];
+    }
+
+  } catch (e) {
+    return [{ id: "err", type: "text", title: "加载详情失败", subTitle: e.message }];
+  }
+}
+
+async function loadDetail2(link) {
+  // 1. 拼接完整 URL
   const link111 = "/out/?l=3AASGc4eAkCOq0s2bExFM2dVZFg1AtmIaHR0cHM6Ly93d3cuYmZodWIuY29tL3ZpZGVvcy8xNTc5NDAzL2RhZGR5LWd5bS1nZXQtaG90LWZ1Y2tlZC1ieS1hLWhhbmRzb21lLXN0cmFpZ2h0LWd1eS8/dXRtX3NvdXJjZT1hd24mdXRtX21lZGl1bT10Z3AmdXRtX2NhbXBhaWduPWNwY80BlaJ0YwFFp3BvcHVsYXIB2St7ImFsbCI6IiIsIm9yaWVudGF0aW9uIjoiZ2F5IiwicHJpY2luZyI6IiJ9zPzOaYbk2ahjYXRlZ29yec12y8DZPVt7IjEiOiJhVzhiMTdJVUpaZiJ9LHsiMiI6InhjMm9FWGQ1aTVIIn0seyIzIjoianJmTjVQU2V6a2sifV0%3D&c=03b82d74&v=3&"
 
   // const url = BASE_URL + link; // 直接拼接，避免解析错误导致的路径问题
@@ -211,51 +290,58 @@ async function loadDetail(link) {
     // 1. 提取 sources 数组 (最关键的一步)
     // 正则含义：匹配 "var sources =" 后面直到 ";" 之前的所有内容
     const sourcesMatch = html.match(/var\s+sources\s*=\s*(\[.*?\]);/s);
-    
+
     console.log(`Sources match: ${sourcesMatch}`);
 
     if (sourcesMatch && sourcesMatch[1]) {
-        try {
-            // 解析 JSON
-            const sources = JSON.parse(sourcesMatch[1]);
-            
-            // 2. 挑选最佳画质
-            // 策略：优先找 desc 为 "720p" 或 "1080p" 的，找不到就拿第一个
-            let bestSource = sources.find(s => s.desc === "1080p") || 
-                             sources.find(s => s.desc === "720p") || 
-                             sources[0];
-                             
-            if (bestSource && bestSource.src) {
-                videoUrl = bestSource.src;
-            }
-            return false; // 已找到视频地址，后续步骤不再执行
-        } catch (e) {
-            console.log("解析 sources JSON 失败: " + e.message);
+      try {
+        // 解析 JSON
+        const sources = JSON.parse(sourcesMatch[1]);
+
+        // 2. 挑选最佳画质
+        // 策略：优先找 desc 为 "720p" 或 "1080p" 的，找不到就拿第一个
+        let bestSource = sources.find(s => s.desc === "1080p") ||
+          sources.find(s => s.desc === "720p") ||
+          sources[0];
+
+        if (bestSource && bestSource.src) {
+          videoUrl = bestSource.src;
         }
+        return false; // 已找到视频地址，后续步骤不再执行
+      } catch (e) {
+        console.log("解析 sources JSON 失败: " + e.message);
+      }
     }
 
     if (!videoUrl) {
-            // 最后尝试一下简单的 source = ...
-            const matchSimple = html.match(/source\s*=\s*['"]([^'"]+)['"]/);
-            if (matchSimple) videoUrl = matchSimple[1];
-        }
+      // 最后尝试一下简单的 source = ...
+      const matchSimple = html.match(/source\s*=\s*['"]([^'"]+)['"]/);
+      if (matchSimple) videoUrl = matchSimple[1];
+    }
 
-        if (videoUrl) {
-            return [{
-                id: link,
-                type: "video",
-                title: title,
-                videoUrl: videoUrl,
-                playerType: "system",
-                customHeaders: {
-                    "Referer": "https://missav.ai/", // 必须是根域名，不能是 link
-                    "User-Agent": HEADERS["User-Agent"],
-                    "Origin": "https://missav.ai"
-                }
-            }];
-        } else {
-            return [{ id: "err", type: "text", title: "解析失败", subTitle: "未找到播放地址" }];
-        }
+    if (videoUrl) {
+      let videoHeaders = {
+        "Referer": BASE_URL, // 必须是根域名，不能是 link
+        "User-Agent": HEADERS["User-Agent"]
+      };
+
+      if (videoUrl.includes("boyfriendtv.com")) {
+        videoHeaders["Referer"] = "https://www.boyfriendtv.com/";
+      }
+
+      console.log(`Final video URL: ${videoUrl}`);
+
+      return [{
+        id: link,
+        type: "video",
+        title: title,
+        videoUrl: videoUrl,
+        playerType: "system",
+        customHeaders: videoHeaders
+      }];
+    } else {
+      return [{ id: "err", type: "text", title: "解析失败", subTitle: "未找到播放地址" }];
+    }
 
   } catch (e) {
     return [{ id: "err", type: "text", title: "加载详情失败", subTitle: e.message }];
