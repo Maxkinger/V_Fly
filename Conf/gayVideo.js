@@ -1,10 +1,10 @@
 WidgetMetadata = {
   id: "gayVideo",
-  title: "gayVideo",
-  description: "获取 gayVideo 视频",
+  title: "video",
+  description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "1.0.2",
+  version: "1.0.3",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -101,6 +101,8 @@ async function loadList(params = {}) {
   const qs = `filter%5Badvertiser_publish_date%5D=${advertiser_publish_date}&filter%5Bduration%5D=${duration}&filter%5Bquality%5D=&filter%5Bvirtual_reality%5D=&filter%5Badvertiser_site%5D=&filter%5Border_by%5D=${sort}`;
 
   let url = `${BASE_URL}/zh/cat/${category}?${qs}`;
+  console.log(`Constructed URL: ${url}`);
+
   if (page > 1) url += `&page=${page}`;
 
   try {
@@ -156,35 +158,6 @@ async function loadList(params = {}) {
   }
 }
 
-// async function loadDetail(link) {
-//   const response = await Widget.http.get(link, {
-//     headers: {
-//       "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-//     },
-//   });
-//   const hlsUrl = response.data.match(/var hlsUrl = '(.*?)';/)[1];
-//   if (!hlsUrl) {
-//     throw new Error("无法获取有效的HLS URL");
-//   }
-//   const item = {
-//     id: link,
-//     type: "detail",
-//     videoUrl: hlsUrl,
-//     mediaType: "movie",
-//     playerType: "system",
-//     customHeaders: {
-//       "Referer": link,
-//       "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-//     },
-//   };
-//   const sections = await parseHtml(response.data);
-//   const items = sections.flatMap((section) => section.childItems);
-//   if (items.length > 0) {
-//     item.childItems = items;
-//   }
-//   return item;
-// }
-
 // 辅助函数：处理 URL 拼接
 function resolveUrl(url) {
   if (url.startsWith("http")) return url;
@@ -215,7 +188,7 @@ async function loadDetail(link) {
 
     console.log(`Parsed title: ${title}`);
     console.log(`Parsed cover URL: ${coverUrl}`);
-    
+
     // 4. 通用视频地址嗅探 (逻辑参考 MISSAV)
     let videoUrl = "";
 
