@@ -89,7 +89,9 @@ WidgetMetadata = {
       title: "获取视频详情",
       functionName: "loadDetail",
       type: "video",
-      params: []
+      params: [
+        { name: "page", title: "页码", type: "page" }
+      ]
     }
   ],
 };
