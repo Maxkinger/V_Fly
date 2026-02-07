@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.19",
+  version: "0.0.20",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -195,33 +195,41 @@ async function loadDetail(link) {
     // 4. 通用视频地址嗅探 (逻辑参考 MISSAV)
     let videoUrl = "";
 
+    const multiMatch = html.match(/var\s+multiSource\s*=\s*'([^']+)';/);
+    if (multiMatch && multiMatch[1]) {
+      videoUrl = multiMatch[1];
+      // console.log("Found master playlist (multiSource)");
+    }
+    // 继续尝试其他策略，如果 multiSource 未找到或无效
     // 1. 提取 sources 数组 (最关键的一步)
     // 正则含义：匹配 "var sources =" 后面直到 ";" 之前的所有内容
-    const sourcesMatch = html.match(/var\s+sources\s*=\s*(\[.*?\]);/s);
+    if (!videoUrl) {
+      const sourcesMatch = html.match(/var\s+sources\s*=\s*(\[.*?\]);/s);
+      console.log(`Sources match: ${sourcesMatch}`);
 
-    console.log(`Sources match: ${sourcesMatch}`);
+      if (sourcesMatch && sourcesMatch[1]) {
+        try {
+          // 解析 JSON
+          const sources = JSON.parse(sourcesMatch[1]);
 
-    if (sourcesMatch && sourcesMatch[1]) {
-      try {
-        // 解析 JSON
-        const sources = JSON.parse(sourcesMatch[1]);
+          console.log(`Parsed sources: ${sources}`);
 
-        console.log(`Parsed sources: ${sources}`);
+          // 2. 挑选最佳画质
+          // 策略：优先找 desc 为 "720p" 或 "1080p" 的，找不到就拿第一个
+          let bestSource = sources.find(s => s.desc === "1080p") ||
+            sources.find(s => s.desc === "720p") ||
+            sources[0];
 
-        // 2. 挑选最佳画质
-        // 策略：优先找 desc 为 "720p" 或 "1080p" 的，找不到就拿第一个
-        let bestSource = sources.find(s => s.desc === "1080p") ||
-          sources.find(s => s.desc === "720p") ||
-          sources[0];
-
-        if (bestSource && bestSource.src) {
-          videoUrl = bestSource.src;
+          if (bestSource && bestSource.src) {
+            videoUrl = bestSource.src;
+          }
+          console.log(`Selected video URL: ${videoUrl}`);
+        } catch (e) {
+          console.log("解析 sources JSON 失败: " + e.message);
         }
-        console.log(`Selected video URL: ${videoUrl}`);
-      } catch (e) {
-        console.log("解析 sources JSON 失败: " + e.message);
       }
     }
+
 
     // 【策略 2】 直接 Video 标签模式 (新增：对应 gay4porn 等)
     // 说明：很多网站直接把地址写在 <video src="..."> 里
