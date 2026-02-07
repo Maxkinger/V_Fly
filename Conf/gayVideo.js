@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.17",
+  version: "0.0.18",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -248,10 +248,6 @@ async function loadDetail(link) {
 
       if (src && src.startsWith('http')) {
         videoUrl = src;
-
-        // 顺便尝试抓取这种播放器的封面 (fp-poster)
-        const posterSrc = $('.fp-poster img').attr('src');
-        if (posterSrc) coverUrl = posterSrc;
       }
     }
 
@@ -277,6 +273,10 @@ async function loadDetail(link) {
 
       if (videoUrl.includes("boyfriendtv.com")) {
         videoHeaders["Referer"] = "https://www.boyfriendtv.com/";
+      } else if (videoUrl.includes("gaydudesfucking.com")) {
+        videoHeaders["Referer"] = "https://www.gaydudesfucking.com/";
+      } else if (videoUrl.includes("gay4porn.com")) {
+        videoHeaders["Referer"] = "https://www.gay4porn.com/";
       }
 
       console.log(`Final video URL: ${videoUrl}`);
@@ -300,7 +300,7 @@ async function loadDetail(link) {
 
 async function loadDetail2(link) {
   // 1. 拼接完整 URL
-  const link111 = "/out/?l=3AASGc4eAkCOq0s2bExFM2dVZFg1AtmIaHR0cHM6Ly93d3cuYmZodWIuY29tL3ZpZGVvcy8xNTc5NDAzL2RhZGR5LWd5bS1nZXQtaG90LWZ1Y2tlZC1ieS1hLWhhbmRzb21lLXN0cmFpZ2h0LWd1eS8/dXRtX3NvdXJjZT1hd24mdXRtX21lZGl1bT10Z3AmdXRtX2NhbXBhaWduPWNwY80BlaJ0YwFFp3BvcHVsYXIB2St7ImFsbCI6IiIsIm9yaWVudGF0aW9uIjoiZ2F5IiwicHJpY2luZyI6IiJ9zPzOaYbk2ahjYXRlZ29yec12y8DZPVt7IjEiOiJhVzhiMTdJVUpaZiJ9LHsiMiI6InhjMm9FWGQ1aTVIIn0seyIzIjoianJmTjVQU2V6a2sifV0%3D&c=03b82d74&v=3&"
+  const link111 = "/out/?l=3AASGc4RmGQCq2pRc0x6R3pwdzVNAtlYaHR0cHM6Ly93d3cuZ2F5NHBvcm4uY29tL3ZpZGVvcy8yNjgzNy9jaGluZXNlLXBsdW1iZXItZnVjay1mZXN0LXBhcnQtMS8/dXRtX3NvdXJjZT1wYndlYs0DDqJ0YwHNB4incG9wdWxhcg/ZK3siYWxsIjoiIiwib3JpZW50YXRpb24iOiJnYXkiLCJwcmljaW5nIjoiIn3M/M5phx%2BaqGNhdGVnb3J5zXbSwNl8W3siMSI6IkxicUhzYWo0QVRKIn0seyIyIjoibzRZM0h5TkppRTYifSx7IjMiOiJ2OXJmb2JydGVKYiJ9LHsiLTEiOiJCVkdweHpHMW9LRiJ9LHsiLTIiOiJRWXA5WjE1alAzSCJ9LHsiLTMiOiI3U0N5UkhQS2dqbCJ9XQ%3D%3D&amp;c=26558940&amp;v=3"
 
   // const url = BASE_URL + link; // 直接拼接，避免解析错误导致的路径问题
   let url = `${BASE_URL}${link111}`;
@@ -329,6 +329,7 @@ async function loadDetail2(link) {
     // 正则含义：匹配 "var sources =" 后面直到 ";" 之前的所有内容
     const sourcesMatch = html.match(/var\s+sources\s*=\s*(\[.*?\]);/s);
     console.log(`Sources match: ${sourcesMatch}`);
+
     if (sourcesMatch && sourcesMatch[1]) {
       try {
         // 解析 JSON
@@ -351,10 +352,35 @@ async function loadDetail2(link) {
       }
     }
 
+    // 【策略 2】 直接 Video 标签模式 (新增：对应 gay4porn 等)
+    // 说明：很多网站直接把地址写在 <video src="..."> 里
     if (!videoUrl) {
-      // 最后尝试一下简单的 source = ...
-      const matchSimple = html.match(/source\s*=\s*['"]([^'"]+)['"]/);
-      if (matchSimple) videoUrl = matchSimple[1];
+      // 优先找带 fp-engine 类的 (你提供的例子)，或者任意带 src 的 video 标签
+      const $video = $('video.fp-engine').first();
+      let src = $video.attr('src');
+
+      // 如果没找到 fp-engine，尝试找任意有 src 的 video
+      if (!src) {
+        src = $('video[src]').attr('src');
+      }
+
+      if (src && src.startsWith('http')) {
+        videoUrl = src;
+      }
+    }
+
+    // 【策略 3】 通用正则暴力搜索 (兜底)
+    // 应对那些既没有 video 标签，也没有明显 sources 变量的网站
+    if (!videoUrl) {
+      // 找 m3u8
+      const m3u8Match = html.match(/https?:\/\/[^"'\s<>]+\.m3u8/i);
+      if (m3u8Match) videoUrl = m3u8Match[0];
+
+      // 找 mp4 (如果还没找到)
+      if (!videoUrl) {
+        const mp4Match = html.match(/https?:\/\/[^"'\s<>]+\.mp4/i);
+        if (mp4Match) videoUrl = mp4Match[0];
+      }
     }
 
     if (videoUrl) {
