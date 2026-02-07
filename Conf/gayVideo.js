@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.15",
+  version: "0.0.16",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -217,6 +217,8 @@ async function loadDetail(link) {
         // 解析 JSON
         const sources = JSON.parse(sourcesMatch[1]);
 
+        console.log(`Parsed sources: ${sources}`);
+
         // 2. 挑选最佳画质
         // 策略：优先找 desc 为 "720p" 或 "1080p" 的，找不到就拿第一个
         let bestSource = sources.find(s => s.desc === "1080p") ||
@@ -226,7 +228,7 @@ async function loadDetail(link) {
         if (bestSource && bestSource.src) {
           videoUrl = bestSource.src;
         }
-        return false; // 已找到视频地址，后续步骤不再执行
+        console.log(`Selected video URL: ${videoUrl}`);
       } catch (e) {
         console.log("解析 sources JSON 失败: " + e.message);
       }
@@ -239,17 +241,24 @@ async function loadDetail(link) {
     }
 
     if (videoUrl) {
+      let videoHeaders = {
+        "Referer": BASE_URL, // 必须是根域名，不能是 link
+        "User-Agent": HEADERS["User-Agent"]
+      };
+
+      if (videoUrl.includes("boyfriendtv.com")) {
+        videoHeaders["Referer"] = "https://www.boyfriendtv.com/";
+      }
+
+      console.log(`Final video URL: ${videoUrl}`);
+
       return [{
         id: link,
         type: "video",
         title: title,
         videoUrl: videoUrl,
         playerType: "system",
-        customHeaders: {
-          "Referer": "https://missav.ai/", // 必须是根域名，不能是 link
-          "User-Agent": HEADERS["User-Agent"],
-          "Origin": "https://missav.ai"
-        }
+        customHeaders: videoHeaders
       }];
     } else {
       return [{ id: "err", type: "text", title: "解析失败", subTitle: "未找到播放地址" }];
