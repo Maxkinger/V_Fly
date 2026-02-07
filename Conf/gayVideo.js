@@ -40,15 +40,47 @@ WidgetMetadata = {
           ]
         },
         {
+          name: "advertiser_publish_date",
+          title: "已添加日期",
+          type: "enumeration",
+          value: "",
+          enumOptions: [
+            { title: "全部", value: "" },
+            { title: "过去24小时", value: "1D" },
+            { title: "过去两天", value: "2D" },
+            { title: "过去一周", value: "7D" },
+            { title: "过去一个月", value: "1M" },
+            { title: "过去三个月", value: "3M" },
+            { title: "过去一年", value: "1Y" }
+          ]
+        },
+        {
+          name: "duration",
+          title: "排序",
+          type: "enumeration",
+          value: "",
+          enumOptions: [
+            { title: "全部", value: "" },
+            { title: "1+分钟", value: "60" },
+            { title: "5+分钟", value: "300" },
+            { title: "10+分钟", value: "600" },
+            { title: "20+分钟", value: "1200" },
+            { title: "30+分钟", value: "1800" },
+            { title: "60+分钟", value: "3600" },
+            { title: "0-10分钟", value: "0-600" },
+            { title: "0-20分钟", value: "0-1200" }
+          ]
+        },
+        {
           name: "sort",
           title: "排序",
           type: "enumeration",
-          value: "released_at",
+          value: "popular",
           enumOptions: [
-            { title: "发布日期", value: "released_at" },
-            { title: "今日浏览", value: "today_views" },
-            { title: "总浏览量", value: "views" },
-            { title: "收藏数", value: "saved" }
+            { title: "人气", value: "popular" },
+            { title: "日期", value: "date" },
+            { title: "持续时间", value: "duration" },
+            { title: "评分", value: "rating" }
           ]
         }
       ]
@@ -64,10 +96,12 @@ const HEADERS = {
 };
 
 async function loadList(params = {}) {
-  const { page = 1, category = "cat/chinese" } = params;
+  const { page = 1, category = "cat/chinese", advertiser_publish_date = "", duration = "", sort = "popular" } = params;
 
-  let url = `${BASE_URL}/${category}`;
-  if (page > 1) url += `?page=${page}`;
+  const qs = `filter%5Badvertiser_publish_date%5D=${advertiser_publish_date}&filter%5Bduration%5D=${duration}&filter%5Bquality%5D=&filter%5Bvirtual_reality%5D=&filter%5Badvertiser_site%5D=&filter%5Border_by%5D=${sort}`;
+  
+  let url = `${BASE_URL}/${category}?${qs}`;
+  if (page > 1) url += `&page=${page}`;
 
   try {
     const res = await Widget.http.get(url, { headers: HEADERS });
