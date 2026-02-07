@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.5",
+  version: "0.0.6",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -84,30 +84,30 @@ WidgetMetadata = {
           ]
         }
       ]
+    },
+    {
+      title: "获取视频详情",
+      functionName: "loadDetail",
+      type: "video",
+      params: [
+        { name: "page", title: "页码", type: "page" },
+        {
+          name: "advertiser_publish_date",
+          title: "已添加日期",
+          type: "enumeration",
+          value: "",
+          enumOptions: [
+            { title: "全部", value: "" },
+            { title: "过去24小时", value: "1D" },
+            { title: "过去两天", value: "2D" },
+            { title: "过去一周", value: "7D" },
+            { title: "过去一个月", value: "1M" },
+            { title: "过去三个月", value: "3M" },
+            { title: "过去一年", value: "1Y" }
+          ]
+        },
+      ]
     }
-    // {
-    //   title: "获取视频详情",
-    //   functionName: "loadDetail2",
-    //   type: "video",
-    //   params: [
-    //     { name: "page", title: "页码", type: "page" },
-    //     {
-    //       name: "advertiser_publish_date",
-    //       title: "已添加日期",
-    //       type: "enumeration",
-    //       value: "",
-    //       enumOptions: [
-    //         { title: "全部", value: "" },
-    //         { title: "过去24小时", value: "1D" },
-    //         { title: "过去两天", value: "2D" },
-    //         { title: "过去一周", value: "7D" },
-    //         { title: "过去一个月", value: "1M" },
-    //         { title: "过去三个月", value: "3M" },
-    //         { title: "过去一年", value: "1Y" }
-    //       ]
-    //     },
-    //   ]
-    // }
   ]
 };
 
