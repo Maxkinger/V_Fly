@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.14",
+  version: "0.0.15",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -310,8 +310,6 @@ async function loadDetail2(link) {
           videoUrl = bestSource.src;
         }
         console.log(`Selected video URL: ${videoUrl}`);
-
-        return false; // 已找到视频地址，后续步骤不再执行
       } catch (e) {
         console.log("解析 sources JSON 失败: " + e.message);
       }
