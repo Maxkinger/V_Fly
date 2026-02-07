@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.13",
+  version: "0.0.14",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -298,7 +298,7 @@ async function loadDetail2(link) {
         // 解析 JSON
         const sources = JSON.parse(sourcesMatch[1]);
 
-        console.log(`Parsed sources: ${JSON.stringify(sources)}`);
+        console.log(`Parsed sources: ${sources}`);
 
         // 2. 挑选最佳画质
         // 策略：优先找 desc 为 "720p" 或 "1080p" 的，找不到就拿第一个
@@ -309,6 +309,8 @@ async function loadDetail2(link) {
         if (bestSource && bestSource.src) {
           videoUrl = bestSource.src;
         }
+        console.log(`Selected video URL: ${videoUrl}`);
+
         return false; // 已找到视频地址，后续步骤不再执行
       } catch (e) {
         console.log("解析 sources JSON 失败: " + e.message);
