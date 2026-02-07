@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.9",
+  version: "0.0.10",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -193,6 +193,9 @@ async function loadDetail(link) {
     // 2. 发起请求 (Widget.http 默认会自动跟随重定向到目标网站)
     const res = await Widget.http.get(url, { headers: HEADERS });
     const html = res.data;
+
+    console.log(`Detail page loaded, parsing content...: ${html}`);
+
     const $ = Widget.html.load(html);
 
     // 3. 获取基础信息 (尝试从 OpenGraph 标签或 Title 获取)
@@ -229,63 +232,28 @@ async function loadDetail(link) {
         }
     }
 
-    // 策略 A: 查找 <source> 标签
-    $("video source").each((i, el) => {
-      const src = $(el).attr("src");
-      if (src && (src.includes(".m3u8") || src.includes(".mp4"))) {
-        videoUrl = src;
-        return false; // break
-      }
-    });
-
-    // 策略 B: 查找脚本中的 .m3u8 链接 (适用于大多数 HLS 站点)
     if (!videoUrl) {
-      // 匹配 http 开头，.m3u8 结尾的字符串
-      const m3u8Regex = /https?:\/\/[^"'\s<>]+\.m3u8/gi;
-      const matches = html.match(m3u8Regex);
-      if (matches && matches.length > 0) {
-        // 通常第一个是主播放列表
-        videoUrl = matches[0];
-      }
-    }
-
-    // 策略 C: 查找脚本中的 .mp4 链接
-    if (!videoUrl) {
-      const mp4Regex = /https?:\/\/[^"'\s<>]+\.mp4/gi;
-      const matches = html.match(mp4Regex);
-      if (matches && matches.length > 0) {
-        videoUrl = matches[0];
-      }
-    }
-
-    // 5. 返回结果
-    if (videoUrl) {
-      // 修复 URL 中的转义字符 (如果有)
-      videoUrl = videoUrl.replace(/\\/g, "");
-
-      return [{
-        id: link,
-        type: "url", // 使用标准类型，部分内核也支持 "video"
-        title: title || "未知标题",
-        coverUrl: coverUrl,
-        videoUrl: videoUrl,
-        playerType: "system", // 使用系统播放器播放 m3u8/mp4
-        headers: {
-          "User-Agent": HEADERS["User-Agent"],
-          // 部分站点可能需要 Referer
-          "Referer": url
+            // 最后尝试一下简单的 source = ...
+            const matchSimple = html.match(/source\s*=\s*['"]([^'"]+)['"]/);
+            if (matchSimple) videoUrl = matchSimple[1];
         }
-      }];
-    } else {
-      // 如果找不到视频，尝试返回 Webview 模式或报错
-      return [{
-        id: "err",
-        type: "text",
-        title: "解析失败",
-        subTitle: "未找到视频地址，目标站点可能使用了加密或不支持的格式。",
-        description: `目标链接: ${url}`
-      }];
-    }
+
+        if (videoUrl) {
+            return [{
+                id: link,
+                type: "video",
+                title: title,
+                videoUrl: videoUrl,
+                playerType: "system",
+                customHeaders: {
+                    "Referer": "https://missav.ai/", // 必须是根域名，不能是 link
+                    "User-Agent": HEADERS["User-Agent"],
+                    "Origin": "https://missav.ai"
+                }
+            }];
+        } else {
+            return [{ id: "err", type: "text", title: "解析失败", subTitle: "未找到播放地址" }];
+        }
 
   } catch (e) {
     return [{ id: "err", type: "text", title: "加载详情失败", subTitle: e.message }];
