@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.18",
+  version: "0.0.19",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -88,23 +88,12 @@ WidgetMetadata = {
     {
       title: "获取视频详情",
       functionName: "loadDetail2",
-      type: "video",
       params: [
-        { name: "page", title: "页码", type: "page" },
         {
-          name: "advertiser_publish_date",
-          title: "已添加日期",
-          type: "enumeration",
-          value: "",
-          enumOptions: [
-            { title: "全部", value: "" },
-            { title: "过去24小时", value: "1D" },
-            { title: "过去两天", value: "2D" },
-            { title: "过去一周", value: "7D" },
-            { title: "过去一个月", value: "1M" },
-            { title: "过去三个月", value: "3M" },
-            { title: "过去一年", value: "1Y" }
-          ]
+          name: "adre",
+          title: "url地址",
+          type: "input",
+          placeholder: "请输入视频详情页的URL地址"
         },
       ]
     }
@@ -300,7 +289,13 @@ async function loadDetail(link) {
 
 async function loadDetail2(link) {
   // 1. 拼接完整 URL
-  const link111 = "/out/?l=3AASGc4RmGQCq2pRc0x6R3pwdzVNAtlYaHR0cHM6Ly93d3cuZ2F5NHBvcm4uY29tL3ZpZGVvcy8yNjgzNy9jaGluZXNlLXBsdW1iZXItZnVjay1mZXN0LXBhcnQtMS8/dXRtX3NvdXJjZT1wYndlYs0DDqJ0YwHNB4incG9wdWxhcg/ZK3siYWxsIjoiIiwib3JpZW50YXRpb24iOiJnYXkiLCJwcmljaW5nIjoiIn3M/M5phx%2BaqGNhdGVnb3J5zXbSwNl8W3siMSI6IkxicUhzYWo0QVRKIn0seyIyIjoibzRZM0h5TkppRTYifSx7IjMiOiJ2OXJmb2JydGVKYiJ9LHsiLTEiOiJCVkdweHpHMW9LRiJ9LHsiLTIiOiJRWXA5WjE1alAzSCJ9LHsiLTMiOiI3U0N5UkhQS2dqbCJ9XQ%3D%3D&amp;c=26558940&amp;v=3"
+  let link111 = "/out/?l=3AASGc4RmGQCq2pRc0x6R3pwdzVNAtlYaHR0cHM6Ly93d3cuZ2F5NHBvcm4uY29tL3ZpZGVvcy8yNjgzNy9jaGluZXNlLXBsdW1iZXItZnVjay1mZXN0LXBhcnQtMS8/dXRtX3NvdXJjZT1wYndlYs0DDqJ0YwHNB4incG9wdWxhcg/ZK3siYWxsIjoiIiwib3JpZW50YXRpb24iOiJnYXkiLCJwcmljaW5nIjoiIn3M/M5phx%2BaqGNhdGVnb3J5zXbSwNl8W3siMSI6IkxicUhzYWo0QVRKIn0seyIyIjoibzRZM0h5TkppRTYifSx7IjMiOiJ2OXJmb2JydGVKYiJ9LHsiLTEiOiJCVkdweHpHMW9LRiJ9LHsiLTIiOiJRWXA5WjE1alAzSCJ9LHsiLTMiOiI3U0N5UkhQS2dqbCJ9XQ%3D%3D&c=26558940&v=3&"
+
+  const { adre } = params;
+  if (!adre || adre.trim() === "") {
+    return [];
+  }
+  link111 = adre.trim();
 
   // const url = BASE_URL + link; // 直接拼接，避免解析错误导致的路径问题
   let url = `${BASE_URL}${link111}`;
@@ -346,7 +341,7 @@ async function loadDetail2(link) {
         if (bestSource && bestSource.src) {
           videoUrl = bestSource.src;
         }
-        console.log(`Selected video URL: ${videoUrl}`);
+        console.log(`策略1: Selected video URL: ${videoUrl}`);
       } catch (e) {
         console.log("解析 sources JSON 失败: " + e.message);
       }
@@ -367,6 +362,7 @@ async function loadDetail2(link) {
       if (src && src.startsWith('http')) {
         videoUrl = src;
       }
+      console.log(`策略2: Selected video URL: ${videoUrl}`);
     }
 
     // 【策略 3】 通用正则暴力搜索 (兜底)
@@ -381,6 +377,7 @@ async function loadDetail2(link) {
         const mp4Match = html.match(/https?:\/\/[^"'\s<>]+\.mp4/i);
         if (mp4Match) videoUrl = mp4Match[0];
       }
+      console.log(`策略3: Selected video URL: ${videoUrl}`);
     }
 
     if (videoUrl) {
