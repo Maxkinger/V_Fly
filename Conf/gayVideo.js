@@ -4,7 +4,7 @@ WidgetMetadata = {
   description: "获取Video 视频",
   author: "xxx",
   site: "https://github.com/quantumultxx/FW-Widgets",
-  version: "0.0.4",
+  version: "0.0.5",
   requiredVersion: "0.0.1",
   detailCacheDuration: 60,
   modules: [
@@ -181,97 +181,10 @@ async function loadList(params = {}) {
   }
 }
 
-async function loadDetail2(link) {
-  // 1. 拼接完整 URL
-  // const url = resolveUrl(link);
-  const link = "/out/?l=3AASGc4eAkCOq0s2bExFM2dVZFg1AtmIaHR0cHM6Ly93d3cuYmZodWIuY29tL3ZpZGVvcy8xNTc5NDAzL2RhZGR5LWd5bS1nZXQtaG90LWZ1Y2tlZC1ieS1hLWhhbmRzb21lLXN0cmFpZ2h0LWd1eS8/dXRtX3NvdXJjZT1hd24mdXRtX21lZGl1bT10Z3AmdXRtX2NhbXBhaWduPWNwY80BlaJ0YwFFp3BvcHVsYXIB2St7ImFsbCI6IiIsIm9yaWVudGF0aW9uIjoiZ2F5IiwicHJpY2luZyI6IiJ9zPzOaYbk2ahjYXRlZ29yec12y8DZPVt7IjEiOiJhVzhiMTdJVUpaZiJ9LHsiMiI6InhjMm9FWGQ1aTVIIn0seyIzIjoianJmTjVQU2V6a2sifV0%3D&c=03b82d74&v=3&"
-
-  const url = BASE_URL + link; // 直接拼接，避免解析错误导致的路径问题
-
-  console.log(`Loading detail from URL: ${url}`);
-  try {
-    // 2. 发起请求 (Widget.http 默认会自动跟随重定向到目标网站)
-    const res = await Widget.http.get(url, { headers: HEADERS });
-    const html = res.data;
-    const $ = Widget.html.load(html);
-
-    // 3. 获取基础信息 (尝试从 OpenGraph 标签或 Title 获取)
-    let title = $('meta[property="og:title"]').attr('content') || $("title").text().trim();
-    let coverUrl = $('meta[property="og:image"]').attr('content');
-
-    console.log(`Parsed title: ${title}`);
-    console.log(`Parsed cover URL: ${coverUrl}`);
-
-    // 4. 通用视频地址嗅探 (逻辑参考 MISSAV)
-    let videoUrl = "";
-
-    // 策略 A: 查找 <source> 标签
-    $("video source").each((i, el) => {
-      const src = $(el).attr("src");
-      if (src && (src.includes(".m3u8") || src.includes(".mp4"))) {
-        videoUrl = src;
-        return false; // break
-      }
-    });
-
-    // 策略 B: 查找脚本中的 .m3u8 链接 (适用于大多数 HLS 站点)
-    if (!videoUrl) {
-      // 匹配 http 开头，.m3u8 结尾的字符串
-      const m3u8Regex = /https?:\/\/[^"'\s<>]+\.m3u8/gi;
-      const matches = html.match(m3u8Regex);
-      if (matches && matches.length > 0) {
-        // 通常第一个是主播放列表
-        videoUrl = matches[0];
-      }
-    }
-
-    // 策略 C: 查找脚本中的 .mp4 链接
-    if (!videoUrl) {
-      const mp4Regex = /https?:\/\/[^"'\s<>]+\.mp4/gi;
-      const matches = html.match(mp4Regex);
-      if (matches && matches.length > 0) {
-        videoUrl = matches[0];
-      }
-    }
-
-    // 5. 返回结果
-    if (videoUrl) {
-      // 修复 URL 中的转义字符 (如果有)
-      videoUrl = videoUrl.replace(/\\/g, "");
-
-      return [{
-        id: link,
-        type: "url", // 使用标准类型，部分内核也支持 "video"
-        title: title || "未知标题",
-        coverUrl: coverUrl,
-        videoUrl: videoUrl,
-        playerType: "system", // 使用系统播放器播放 m3u8/mp4
-        headers: {
-          "User-Agent": HEADERS["User-Agent"],
-          // 部分站点可能需要 Referer
-          "Referer": url
-        }
-      }];
-    } else {
-      // 如果找不到视频，尝试返回 Webview 模式或报错
-      return [{
-        id: "err",
-        type: "text",
-        title: "解析失败",
-        subTitle: "未找到视频地址，目标站点可能使用了加密或不支持的格式。",
-        description: `目标链接: ${url}`
-      }];
-    }
-
-  } catch (e) {
-    return [{ id: "err", type: "text", title: "加载详情失败", subTitle: e.message }];
-  }
-}
-
 async function loadDetail(link) {
   // 1. 拼接完整 URL
   // const url = resolveUrl(link);
-  const link = "/out/?l=3AASGc4eAkCOq0s2bExFM2dVZFg1AtmIaHR0cHM6Ly93d3cuYmZodWIuY29tL3ZpZGVvcy8xNTc5NDAzL2RhZGR5LWd5bS1nZXQtaG90LWZ1Y2tlZC1ieS1hLWhhbmRzb21lLXN0cmFpZ2h0LWd1eS8/dXRtX3NvdXJjZT1hd24mdXRtX21lZGl1bT10Z3AmdXRtX2NhbXBhaWduPWNwY80BlaJ0YwFFp3BvcHVsYXIB2St7ImFsbCI6IiIsIm9yaWVudGF0aW9uIjoiZ2F5IiwicHJpY2luZyI6IiJ9zPzOaYbk2ahjYXRlZ29yec12y8DZPVt7IjEiOiJhVzhiMTdJVUpaZiJ9LHsiMiI6InhjMm9FWGQ1aTVIIn0seyIzIjoianJmTjVQU2V6a2sifV0%3D&c=03b82d74&v=3&"
+  // const link = "/out/?l=3AASGc4eAkCOq0s2bExFM2dVZFg1AtmIaHR0cHM6Ly93d3cuYmZodWIuY29tL3ZpZGVvcy8xNTc5NDAzL2RhZGR5LWd5bS1nZXQtaG90LWZ1Y2tlZC1ieS1hLWhhbmRzb21lLXN0cmFpZ2h0LWd1eS8/dXRtX3NvdXJjZT1hd24mdXRtX21lZGl1bT10Z3AmdXRtX2NhbXBhaWduPWNwY80BlaJ0YwFFp3BvcHVsYXIB2St7ImFsbCI6IiIsIm9yaWVudGF0aW9uIjoiZ2F5IiwicHJpY2luZyI6IiJ9zPzOaYbk2ahjYXRlZ29yec12y8DZPVt7IjEiOiJhVzhiMTdJVUpaZiJ9LHsiMiI6InhjMm9FWGQ1aTVIIn0seyIzIjoianJmTjVQU2V6a2sifV0%3D&c=03b82d74&v=3&"
 
   const url = BASE_URL + link; // 直接拼接，避免解析错误导致的路径问题
 
